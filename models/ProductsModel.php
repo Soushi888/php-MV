@@ -2,18 +2,23 @@
 
 namespace App\Models;
 
-use Dbh;
 
-class ProductsModel extends Dbh
+class ProductsModel
 {
     // All the products
     public $products = [];
+    private $connection = null;
+
+    public function __construct($connection)
+    {
+        $this->connection = $connection;
+    }
 
     // Get all the products
     public function getAllProducts()
     {
         $sql = "SELECT * FROM products";
-        $results = $this->connect()->prepare($sql);
+        $results = $this->connection->prepare($sql);
         $results->execute();
         $products = $results->fetchAll();
 
@@ -27,9 +32,8 @@ class ProductsModel extends Dbh
     // Get a product by id
     public function getProduct($product_id)
     {
-        $this->connect();
         $sql = "SELECT * FROM products WHERE id = ?";
-        $results = $this->connect()->prepare($sql);
+        $results = $this->connection->prepare($sql);
         $results->execute([$product_id]);
         $product = $results->fetch();
 

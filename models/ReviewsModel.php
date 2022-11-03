@@ -2,19 +2,24 @@
 
 namespace App\Models;
 
-use Dbh;
 
-class ReviewsModel extends Dbh
+class ReviewsModel
 {
     // All the reviews of a product
     private $reviews = [];
+    private $connection = null;
+
+ public function __construct($connection)
+    {
+        $this->connection = $connection;
+    }
 
 
     // Get all the reviews of a product
     public function getAllReviews($product_id)
     {
         $sql = "SELECT * FROM reviews WHERE product_id = ?";
-        $results = $this->connect()->prepare($sql);
+        $results = $this->connection->prepare($sql);
         $results->execute([$product_id]);
         $reviews = $results->fetchAll();
 
@@ -29,7 +34,7 @@ class ReviewsModel extends Dbh
     public function createReview($product_id, $title, $name, $content)
     {
         $sql = "INSERT INTO reviews (product_id, title, name, content) VALUES (?, ?,?, ?)";
-        $results = $this->connect()->prepare($sql);
+        $results = $this->connection->prepare($sql);
 
         return $results->execute([$product_id, $title, $name, $content]);
     }

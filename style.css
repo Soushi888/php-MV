@@ -6,7 +6,6 @@ main {
 
 .product {
     width: max-content;
-    margin-bottom: 20px;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -21,7 +20,7 @@ main {
 }
 
 .create-review {
-    width: 250px;
+    width:400px;
     gap: 10px;
     display: flex;
     flex-direction: column;
@@ -30,15 +29,16 @@ main {
 }
 
 .create-review input {
-    width: 100px;
+    width: 150px;
 }
 
 .create-review textarea {
-    width: 200px;
+    width: 300px;
+    height: 100px;
 }
 
 .create-review button {
-    width: 100px;
+    width: 150px;
     height: 30px;
     margin: 0 auto;
     cursor: pointer;
@@ -48,6 +48,7 @@ main {
 .reviews {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 10px;
 }
 
@@ -67,4 +68,11 @@ main {
 
 .success {
     color: green;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 100px;
 }
