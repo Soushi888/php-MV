@@ -1,7 +1,3 @@
-<?php
-if (!$product) header("Location: /products");
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

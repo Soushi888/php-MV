@@ -12,7 +12,11 @@ $product_id = $_GET['id'];
 
 if ($product_id) {
     $product = $products_model->getProduct($product_id);
-    if ($product) $reviews = $reviews_model->getAllReviews($product_id);
+    if ($product) {
+        $reviews = $reviews_model->getAllReviews($product_id);
+    } else {
+        header("Location: /products");
+    }
 }
 
 if (isset($_POST['submit'])) {
