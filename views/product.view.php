@@ -1,5 +1,4 @@
 <?php
-/** @var array $product */
 if (!$product) header("Location: /products");
 ?>
 
