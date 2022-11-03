@@ -1,5 +1,6 @@
 <?php
 
+// Define the routes and their corresponding controllers files
 /** @var Router $router */
 $router->define([
     '' => 'controllers\products.php',

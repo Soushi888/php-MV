@@ -1,4 +1,5 @@
 <?php
+// Configurations for the database connection
 
 return [
     'database' => [
