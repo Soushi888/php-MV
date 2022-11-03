@@ -18,13 +18,12 @@ if ($product_id) {
         // Get the reviews for the product from the database
         $reviews = $reviews_model->getAllReviews($product_id);
         // Display the product page
+        $title = $product['name'];
         require "views/product.view.php";
     }
 } else { // If the product id is not set, redirect to the products page
     header("Location: /products");
 }
-
-$title = $product['name'];
 
 // If the form is submitted
 if (isset($_POST['submit'])) {
