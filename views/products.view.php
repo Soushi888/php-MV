@@ -13,7 +13,7 @@
         <div class="product">
           <h2><?= $product['name'] ?></h2>
           <p><?= $product['description'] ?></p>
-          <p><?= $product['price'] ?></p>
+          <p><?= $product['price'] ?>$</p>
           <a href="product?id=<?= $product['id'] ?>">View product</a>
         </div>
       <?php endforeach; ?>
