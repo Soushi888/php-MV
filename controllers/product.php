@@ -15,4 +15,13 @@ if ($product_id) {
     if ($product) $reviews = $reviews_model->getAllReviews($product_id);
 }
 
+if (isset($_POST['submit'])) {
+    $title = $_POST['title'];
+    $name = $_POST['name'];
+    $content = $_POST['content'];
+
+    $reviews_model->createReview($product_id, $title, $name, $content);
+    header("Location: /product?id=$product_id");
+}
+
 require "views/product.view.php";
