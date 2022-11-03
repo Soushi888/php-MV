@@ -3,6 +3,8 @@
 namespace App\Models;
 
 
+use PDO;
+
 class ReviewsModel
 {
     // Database connection
@@ -22,7 +24,7 @@ class ReviewsModel
         $sql = "SELECT * FROM reviews WHERE product_id = ?";
         $results = $this->connection->prepare($sql);
         $results->execute([$product_id]);
-        $reviews = $results->fetchAll();
+        $reviews = $results->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($reviews as $review) {
             $this->reviews[] = $review; // Add the review to the class property

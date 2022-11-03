@@ -3,6 +3,8 @@
 namespace App\Models;
 
 
+use PDO;
+
 class ProductsModel
 {
     // Database connection
@@ -21,7 +23,7 @@ class ProductsModel
         $sql = "SELECT * FROM products";
         $results = $this->connection->prepare($sql);
         $results->execute();
-        $products = $results->fetchAll();
+        $products = $results->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($products as $product) {
             $this->products[] = $product; // Add the product to the class property
@@ -36,7 +38,7 @@ class ProductsModel
         $sql = "SELECT * FROM products WHERE id = ?";
         $results = $this->connection->prepare($sql);
         $results->execute([$product_id]);
-        $product = $results->fetch();
+        $product = $results->fetch(PDO::FETCH_ASSOC);
 
         return $product;
     }

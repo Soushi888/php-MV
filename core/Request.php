@@ -1,6 +1,6 @@
 <?php
 
-// Helper functions
+// Helper functions for request handling
 class Request
 {
     // Get the requested URI
