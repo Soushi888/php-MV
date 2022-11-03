@@ -5,13 +5,14 @@ namespace App\Models;
 
 class ProductsModel
 {
+    // Database connection
+    private $connection = null;
     // All the products
     public $products = [];
-    private $connection = null;
 
     public function __construct($connection)
     {
-        $this->connection = $connection;
+        $this->connection = $connection; // Set the database connection
     }
 
     // Get all the products

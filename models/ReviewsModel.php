@@ -5,13 +5,14 @@ namespace App\Models;
 
 class ReviewsModel
 {
+    // Database connection
+    private $connection = null;
     // All the reviews of a product
     private $reviews = [];
-    private $connection = null;
 
  public function __construct($connection)
     {
-        $this->connection = $connection;
+        $this->connection = $connection; // Set the database connection
     }
 
 
