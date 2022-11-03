@@ -24,6 +24,8 @@ if ($product_id) {
     header("Location: /products");
 }
 
+$title = $product['name'];
+
 // If the form is submitted
 if (isset($_POST['submit'])) {
     $title = $_POST['title'];

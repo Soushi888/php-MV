@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="../style.css">
-  <title>Products</title>
-</head>
-<body>
+<?php require 'partials/head.php' ?>
   <main>
     <h1>Products</h1>
     <div class="products">
@@ -19,5 +12,4 @@
       <?php endforeach; ?>
     </div>
   </main>
-</body>
-</html>
+<?php require 'partials/footer.php' ?>

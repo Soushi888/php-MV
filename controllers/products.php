@@ -8,5 +8,7 @@ $products = new ProductsModel($app['database']);
 // Get all the products from the database
 $products = $products->getAllProducts();
 
+$title = "Products";
+
 // Display the products page
 require "views/products.view.php";
