@@ -13,16 +13,17 @@
       <?= isset($error) ? "<p class='error'>" . $error . "</p>" : "" ?>
       <form action="" class="create-review" method="post">
         <label>
-          Title : <input type="text" name="title">
+          Title : <input type="text" name="title" value="<?= $review_title ?? "" ?>">
         </label>
         <label>
-          Name : <input type="text" name="name">
+          Name : <input type="text" name="name" value="<?= $name ?? "" ?>">
         </label>
         <label>
-          Rating : <input type="number" name="rating" min="0" max="5" step="0.5">
+          Rating : <input type="number" name="rating" min="0" max="5" step="0.5"
+                          value="<?= $rating ?? "" ?>">
         </label>
         <label>
-          <textarea name="content" placeholder="Content"></textarea>
+          <textarea name="content" placeholder="Content"><?= $content ?? "" ?></textarea>
         </label>
         <input type="submit" name="submit" value="Submit">
       </form>
@@ -31,13 +32,13 @@
 
   <h2>Reviews</h2>
   <?php if ($reviews): ?>
-    <p>Average rating : <?= $average_rating ?></p>
+    <p>Average rating : <b><?= $average_rating ?> / 5</b></p>
     <div class="reviews">
       <?php foreach ($reviews as $review): ?>
         <div class="review">
           <h3><?= $review['title'] ?></h3>
-          <p><?= $review['name'] ?></p>
-          <p><?= $review['rating'] ?></p>
+          <p>By : <?= $review['name'] ?></p>
+          <p><?= $review['rating'] ?> / 5</p>
           <p><?= $review['content'] ?></p>
         </div>
       <?php endforeach; ?>
