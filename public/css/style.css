@@ -20,7 +20,7 @@ main {
 }
 
 .create-review {
-    width:400px;
+    width:500px;
     gap: 10px;
     display: flex;
     flex-direction: column;
@@ -29,16 +29,16 @@ main {
 }
 
 .create-review input {
-    width: 150px;
+    width: 225px;
 }
 
 .create-review textarea {
-    width: 300px;
+    width: 400px;
     height: 100px;
 }
 
 .create-review button {
-    width: 150px;
+    width: 225px;
     height: 30px;
     margin: 0 auto;
     cursor: pointer;

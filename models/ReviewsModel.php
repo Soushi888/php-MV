@@ -4,6 +4,7 @@ namespace App\Models;
 
 
 use PDO;
+use Exception;
 
 class ReviewsModel
 {
@@ -12,7 +13,7 @@ class ReviewsModel
     // All the reviews of a product
     private $reviews = [];
 
- public function __construct($connection)
+    public function __construct($connection)
     {
         $this->connection = $connection; // Set the database connection
     }
@@ -34,11 +35,23 @@ class ReviewsModel
     }
 
     // Create a review
-    public function createReview($product_id, $title, $name, $content)
+    public function createReview($product_id, $title, $name, $rating, $content)
     {
-        $sql = "INSERT INTO reviews (product_id, title, name, content) VALUES (?, ?,?, ?)";
+        $sql = "INSERT INTO reviews (product_id, title, name, rating, content) VALUES (?, ?, ?, ?, ?)";
         $results = $this->connection->prepare($sql);
 
-        return $results->execute([$product_id, $title, $name, $content]);
+        $this->validateRating($rating);
+
+        return $results->execute([$product_id, $title, $name, $rating, $content]);
+    }
+
+    private function validateRating($rating)
+    {
+        // round the rating to the nearest 0.5
+        $rating = round($rating * 2) / 2;
+
+        if ($rating > 5 || $rating < 0) {
+            throw new Exception("Rating must be between 0 and 5");
+        }
     }
 }

@@ -18,6 +18,10 @@
           Name : <input type="text" name="name">
         </label>
         <label>
+          Rating : <input type="number" name="rating" min="0" max="7" step="0.1">
+          <?= isset($error) ? "<span class='error'>" . $error . "</span>" : "" ?>
+        </label>
+        <label>
           <textarea name="content" placeholder="Content"></textarea>
         </label>
         <input type="submit" name="submit" value="Submit">
@@ -31,6 +35,7 @@
       <div class="review">
         <h3><?= $review['title']; ?></h3>
         <p>By : <?= $review['name']; ?></p>
+        <p>Rating : <?= $review['rating']; ?></p>
         <p><?= $review['content']; ?></p>
       </div>
     <?php endforeach; ?>

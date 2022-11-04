@@ -11,6 +11,22 @@ $reviews_model = new ReviewsModel($app['database']);
 
 $product_id = $_GET['id'] ?? null; // Get the product id from the query string
 
+// If the form is submitted
+if (isset($_POST['submit'])) {
+    $title = $_POST['title'];
+    $name = $_POST['name'];
+    $rating = $_POST['rating'];
+    $content = $_POST['content'];
+
+    // Create the review in the database and redirect to the product page
+    try {
+        $reviews_model->createReview($product_id, $title, $name, $rating, $content);
+        header("Location: /product?id=$product_id");
+    } catch (Exception $e) {
+        $error = $e->getMessage();
+    }
+}
+
 if ($product_id) {
     // Get the product from the database
     $product = $products_model->getProduct($product_id);
@@ -23,15 +39,4 @@ if ($product_id) {
     }
 } else { // If the product id is not set, redirect to the products page
     header("Location: /products");
-}
-
-// If the form is submitted
-if (isset($_POST['submit'])) {
-    $title = $_POST['title'];
-    $name = $_POST['name'];
-    $content = $_POST['content'];
-
-    // Create the review in the database and redirect to the product page
-    $reviews_model->createReview($product_id, $title, $name, $content);
-    header("Location: /product?id=$product_id");
 }
