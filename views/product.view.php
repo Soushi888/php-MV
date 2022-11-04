@@ -10,6 +10,7 @@
 
     <div>
       <h2>Create review</h2>
+      <?php isset($error) ? "<p class='error'>" . $error . "</p>" : "" ?>
       <form action="" class="create-review" method="post">
         <label>
           Title : <input type="text" name="title">
@@ -18,8 +19,7 @@
           Name : <input type="text" name="name">
         </label>
         <label>
-          Rating : <input type="number" name="rating" min="0" max="7" step="0.1">
-          <?= isset($error) ? "<span class='error'>" . $error . "</span>" : "" ?>
+          Rating : <input type="number" name="rating" min="0" max="5" step="0.5">
         </label>
         <label>
           <textarea name="content" placeholder="Content"></textarea>

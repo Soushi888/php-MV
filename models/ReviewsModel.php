@@ -2,9 +2,7 @@
 
 namespace App\Models;
 
-
-use PDO;
-use Exception;
+use PDO, Exception;
 
 class ReviewsModel
 {
@@ -40,18 +38,22 @@ class ReviewsModel
         $sql = "INSERT INTO reviews (product_id, title, name, rating, content) VALUES (?, ?, ?, ?, ?)";
         $results = $this->connection->prepare($sql);
 
-        $this->validateRating($rating);
+        $this->validateReview($title, $name, $rating, $content);
 
         return $results->execute([$product_id, $title, $name, $rating, $content]);
     }
 
-    private function validateRating($rating)
+    // Validate the review
+    private function validateReview($title, $name, $rating, $content)
     {
-        // round the rating to the nearest 0.5
-        $rating = round($rating * 2) / 2;
+        $rating = round((int)$rating * 2) / 2;
 
         if ($rating > 5 || $rating < 0) {
             throw new Exception("Rating must be between 0 and 5");
+        }
+
+        if (!$title || !$name || !$rating || !$content) {
+            throw new Exception("All fields are required");
         }
     }
 }

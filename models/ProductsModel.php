@@ -3,7 +3,7 @@
 namespace App\Models;
 
 
-use PDO;
+use PDO, Exception;
 
 class ProductsModel
 {
@@ -41,5 +41,30 @@ class ProductsModel
         $product = $results->fetch(PDO::FETCH_ASSOC);
 
         return $product;
+    }
+
+    // Create a product
+    public function createProduct($name, $description, $price)
+    {
+        $sql = "INSERT INTO products (name, description, price) VALUES (?, ?, ?)";
+        $results = $this->connection->prepare($sql);
+
+        $this->validateProduct($name, $description, $price);
+
+        $results->execute([$name, $description, $price]);
+
+        return $results->insert_id;
+    }
+
+    // validate the product
+    private function validateProduct($name, $description, $price)
+    {
+        if ($price < 0) {
+            throw new Exception("Price must be greater than 0");
+        }
+
+        if (!$name || !$description || !$price) {
+            throw new Exception("All fields are required");
+        }
     }
 }

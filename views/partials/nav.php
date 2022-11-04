@@ -1,1 +1,1 @@
-<nav><a href="/products">Products</a></nav>
+<nav><a href="/products">Products</a> <span><a href="/product/add">+</a></span></nav>
