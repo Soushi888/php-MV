@@ -35,7 +35,7 @@ if ($product_id) {
         $reviews = $reviews_model->getAllReviews($product_id);
         // Display the product page
         $title = $product['name'];
-        require "views/product.view.php";
+        require "views/products/product.view.php";
     }
 } else { // If the product id is not set, redirect to the products page
     header("Location: /products");

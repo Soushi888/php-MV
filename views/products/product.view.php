@@ -1,4 +1,4 @@
-<?php require "partials/head.php" ?>
+<?php require "views/partials/head.php" ?>
 <main>
   <h1>Product number <?= $product['id'] ?></h1>
   <div class="row">
