@@ -32,6 +32,15 @@ class ReviewsModel
         return $this->reviews;
     }
 
+    // Get one review
+    public function getReview($review_id)
+    {
+        $sql = "SELECT * FROM reviews WHERE id = ?";
+        $results = $this->connection->prepare($sql);
+        $results->execute([$review_id]);
+        return $results->fetch(PDO::FETCH_ASSOC);
+    }
+
     // Get the sum of all the ratings of a product
     public function getSumOfRatings($product_id)
     {

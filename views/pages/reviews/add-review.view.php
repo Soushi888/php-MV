@@ -1,6 +1,12 @@
 <?php require "views/partials/head.php"; ?>
   <div>
-    <h2>Create review for product "<?= $product_name ?>"</h2>
+    <h2>Create review for product "<?= $product['name'] ?>"</h2>
+    <div class="product">
+      <h2><a href="/product?product_id=<?= $product['id'] ?>"><?= $product['name'] ?></a></h2>
+      <p><?= $product['description'] ?></p>
+      <p><?= $product['price'] ?>$</p>
+    </div>
+    <br>
     <?= isset($error) ? "<p class='error'>" . $error . "</p>" : "" ?>
     <form action="" method="post">
       <label>
