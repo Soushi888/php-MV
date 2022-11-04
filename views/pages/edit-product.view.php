@@ -1,5 +1,5 @@
 <?php require "views/partials/head.php"; ?>
-<h1>Add product</h1>
+<h1>Edit product "<?= $name ?>"</h1>
 <?= isset($error) ? "<p class='error'>" . $error . "</p>" : "" ?>
 <form action="" method="post">
   <label>

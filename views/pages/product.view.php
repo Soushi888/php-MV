@@ -11,7 +11,7 @@
     <div>
       <h2>Create review</h2>
       <?= isset($error) ? "<p class='error'>" . $error . "</p>" : "" ?>
-      <form action="" class="create-review" method="post">
+      <form action="" method="post">
         <label>
           Title : <input type="text" name="title" value="<?= $review_title ?? "" ?>">
         </label>

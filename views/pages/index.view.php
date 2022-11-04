@@ -8,6 +8,10 @@
           <p><?= $product['description'] ?></p>
           <p><?= $product['price'] ?>$</p>
           <a href="product?product_id=<?= $product['id'] ?>">View product</a>
+          <div class="buttons">
+            <a href="product/edit?product_id=<?= $product['id'] ?>">Edit</a>
+            <a href="delete-product?product_id=<?= $product['id'] ?>">Delete</a>
+          </div>
         </div>
       <?php endforeach; ?>
     </div>
