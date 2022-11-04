@@ -9,7 +9,7 @@ $products_model = new ProductsModel($app['database']);
 $product_id = $_GET['product_id'] ?? null; // Get the product id from the query string
 
 $product = $products_model->getProduct($product_id);
-['name' => $name, 'description' => $description, 'price' => $price,] = $products_model->getProduct($product_id);
+['name' => $name, 'description' => $description, 'price' => $price] = $products_model->getProduct($product_id);
 
 
 if (isset($_POST['submit'])) {
@@ -28,4 +28,4 @@ if (isset($_POST['submit'])) {
 }
 
 $title = 'Edit product "' . $name . '"';
-require "views/pages/edit-product.view.php";
+require "views/pages/products/edit-product.view.php";

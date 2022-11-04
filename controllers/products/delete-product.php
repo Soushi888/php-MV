@@ -18,4 +18,4 @@ if (isset($_POST['delete'])) {
     header("Location: /products");
 }
 
-require "views/pages/delete-product.view.php";
+require "views/pages/products/delete-product.view.php";

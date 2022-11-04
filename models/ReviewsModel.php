@@ -9,7 +9,7 @@ class ReviewsModel
     // Database connection
     private $connection = null;
     // All the reviews of a product
-    private $reviews = [];
+    private array $reviews = [];
 
     public function __construct($connection)
     {
