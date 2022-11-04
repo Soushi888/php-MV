@@ -6,9 +6,9 @@ return [
         "host" => "localhost:3307",
         "database" => "shop",
         "username" => "root",
-        "password" => "root",
+        "password" => "",
         "options" => [
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         ]
     ]
 ];
