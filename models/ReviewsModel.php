@@ -65,6 +65,15 @@ class ReviewsModel
         return $results->execute([$title, $name, $rating, $content, $review_id]);
     }
 
+    // Delete a review
+    public function deleteReview($review_id)
+    {
+        $sql = "DELETE FROM reviews WHERE id = ?";
+        $results = $this->connection->prepare($sql);
+
+        return $results->execute([$review_id]);
+    }
+
     // Validate the review
     private function validateReview($title, $name, $rating, $content)
     {

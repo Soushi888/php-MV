@@ -23,6 +23,7 @@ if (isset($_POST['submit'])) {
         $reviews_model->createReview($product_id, $review_title, $name, $rating, $content);
         header("Location: /product?product_id=$product_id");
     } catch (Exception $e) {
+        // If an error occurs, display it
         $error = $e->getMessage();
     }
 }

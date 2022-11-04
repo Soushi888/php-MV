@@ -18,6 +18,7 @@ if (isset($_POST['submit'])) {
         $products_model->createProduct($name, $description, $price);
         header("Location: /products");
     } catch (Exception $e) {
+        // If an error occurs, display it
         $error = $e->getMessage();
     }
 }

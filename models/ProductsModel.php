@@ -56,6 +56,26 @@ class ProductsModel
         return $results->insert_id;
     }
 
+    // Update a product
+    public function updateProduct($product_id, $name, $description, $price)
+    {
+        $sql = "UPDATE products SET name = ?, description = ?, price = ? WHERE id = ?";
+        $results = $this->connection->prepare($sql);
+
+        $this->validateProduct($name, $description, $price);
+
+        return $results->execute([$name, $description, $price, $product_id]);
+    }
+
+    // Delete a product
+    public function deleteProduct($product_id)
+    {
+        $sql = "DELETE FROM products WHERE id = ?";
+        $results = $this->connection->prepare($sql);
+
+        return $results->execute([$product_id]);
+    }
+
     // validate the product
     private function validateProduct($name, $description, $price)
     {
