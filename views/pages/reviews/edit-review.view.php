@@ -6,6 +6,7 @@
       <p><?= $product['description'] ?></p>
       <p><?= $product['price'] ?>$</p>
     </div>
+    <br>
     <?= isset($error) ? "<p class='error'>" . $error . "</p>" : "" ?>
     <form action="" method="post">
       <label>
