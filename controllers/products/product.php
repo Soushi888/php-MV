@@ -43,5 +43,5 @@ if ($product_id) {
     }
     // Display the product page
     $title = $product['name'];
-    require "views/products/product.view.php";
+    require "views/pages/product.view.php";
 }

@@ -23,4 +23,4 @@ if (isset($_POST['submit'])) {
     }
 }
 
-require "views/products/add-product.view.php";
+require "views/pages//add-product.view.php";

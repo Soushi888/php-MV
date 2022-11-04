@@ -11,4 +11,4 @@ $products = $products->getAllProducts();
 $title = "Products";
 
 // Display the products page
-require "views/products/index.view.php";
+require "views/pages/index.view.php";
