@@ -9,7 +9,7 @@ use App\Models\ReviewsModel;
 $products_model = new ProductsModel($app['database']);
 $reviews_model = new ReviewsModel($app['database']);
 
-$product_id = $_GET['id'] ?? null; // Get the product id from the query string
+$product_id = $_GET['product_id'] ?? null; // Get the product id from the query string
 
 // If the form is submitted
 if (isset($_POST['submit'])) {
@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) {
     // Create the review in the database and redirect to the product page
     try {
         $reviews_model->createReview($product_id, $title, $name, $rating, $content);
-        header("Location: /product?id=$product_id");
+        header("Location: /product?product_id=$product_id");
     } catch (Exception $e) {
         $error = $e->getMessage();
     }
