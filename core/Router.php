@@ -25,13 +25,9 @@ class Router
      */
     public function direct($uri)
     {
-        try { // Try to find the route
-            if (array_key_exists($uri, $this->routes)) {
-                return $this->routes[$uri];
-            }
-
-            throw new Exception('No route defined for this URI.');
-        } catch (Exception $e) { // If the route is not defined, return 404 route
+        if (array_key_exists($uri, $this->routes)) {
+            return $this->routes[$uri];
+        } else {
             return $this->routes["404"];
         }
     }
