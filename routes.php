@@ -8,5 +8,6 @@ $router->define([
     'product' => 'controllers/products/product.php',
     'product/add' => 'controllers/products/add-product.php',
     'product/edit' => 'controllers/products/edit-product.php',
+    'product/delete' => 'controllers/products/delete-product.php',
     '404' => 'controllers/404.php',
 ]);
