@@ -5,10 +5,16 @@
     <h2><?= $product['name'] ?></h2>
     <p><?= $product['description'] ?></p>
     <p><?= $product['price'] ?>$</p>
+    <div class="buttons">
+      <a href="product/edit?product_id=<?= $product['id'] ?>">Edit</a>
+      <a href="product/delete?product_id=<?= $product['id'] ?>">Delete</a>
+    </div>
   </div>
 
   <h2>Reviews</h2>
-    <a href="review/add?product_id=<?= $product['id'] ?>"><button>Add review</button></a>
+  <a href="review/add?product_id=<?= $product['id'] ?>">
+    <button>Add review</button>
+  </a>
   <?php if ($reviews): ?>
     <p>Average rating : <b><?= $average_rating ?> / 5</b></p>
 
