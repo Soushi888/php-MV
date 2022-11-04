@@ -32,6 +32,17 @@ class ReviewsModel
         return $this->reviews;
     }
 
+    // Get the sum of all the ratings of a product
+    public function getSumOfRatings($product_id)
+    {
+        $sql = "SELECT SUM(rating) AS sum FROM reviews WHERE product_id = ?";
+        $results = $this->connection->prepare($sql);
+        $results->execute([$product_id]);
+        $sum = $results->fetch(PDO::FETCH_ASSOC);
+
+        return $sum['sum'];
+    }
+
     // Create a review
     public function createReview($product_id, $title, $name, $rating, $content)
     {
@@ -41,6 +52,17 @@ class ReviewsModel
         $this->validateReview($title, $name, $rating, $content);
 
         return $results->execute([$product_id, $title, $name, $rating, $content]);
+    }
+
+    // Update a review
+    public function updateReview($review_id, $title, $name, $rating, $content)
+    {
+        $sql = "UPDATE reviews SET title = ?, name = ?, rating = ?, content = ? WHERE id = ?";
+        $results = $this->connection->prepare($sql);
+
+        $this->validateReview($title, $name, $rating, $content);
+
+        return $results->execute([$title, $name, $rating, $content, $review_id]);
     }
 
     // Validate the review

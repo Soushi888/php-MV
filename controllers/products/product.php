@@ -30,13 +30,17 @@ if (isset($_POST['submit'])) {
 if ($product_id) {
     // Get the product from the database
     $product = $products_model->getProduct($product_id);
-    if ($product) {
-        // Get the reviews for the product from the database
-        $reviews = $reviews_model->getAllReviews($product_id);
-        // Display the product page
-        $title = $product['name'];
-        require "views/products/product.view.php";
+    // If the product doesn't exist, redirect to the products page
+    if (!$product) header("Location: /products");
+    // Get the reviews for the product from the database
+    $reviews = $reviews_model->getAllReviews($product_id);
+    if ($reviews) {
+        // Get the sum of all the ratings for the product from the database
+        $sum_of_ratings = $reviews_model->getSumOfRatings($product_id);
+        // Calculate the average rating for the product Round it to 2 decimal
+        $average_rating = round($sum_of_ratings / count($reviews), 2);
     }
-} else { // If the product id is not set, redirect to the products page
-    header("Location: /products");
+    // Display the product page
+    $title = $product['name'];
+    require "views/products/product.view.php";
 }
