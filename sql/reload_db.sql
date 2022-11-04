@@ -27,7 +27,6 @@ CREATE TABLE reviews
 (
     id         INT AUTO_INCREMENT
         PRIMARY KEY,
-#  foreign key on product_id
     product_id INT          NOT NULL,
     title      VARCHAR(255) NOT NULL,
     name       VARCHAR(255) NOT NULL,
