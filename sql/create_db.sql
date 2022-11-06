@@ -12,7 +12,7 @@ CREATE TABLE products
         PRIMARY KEY,
     name        VARCHAR(255)   NOT NULL,
     price       DECIMAL(10, 2) NOT NULL,
-    description TEXT           NULL,
+    description TEXT NULL,
     created_at  DATETIME       NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at  DATETIME       NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) engine = InnoDB;
