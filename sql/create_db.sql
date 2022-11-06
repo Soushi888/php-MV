@@ -1,6 +1,8 @@
 DROP DATABASE IF EXISTS `shop`;
 CREATE DATABASE IF NOT EXISTS `shop` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 
+use shop;
+
 # Create the products table
 SET foreign_key_checks = 0;
 DROP TABLE IF EXISTS products;
