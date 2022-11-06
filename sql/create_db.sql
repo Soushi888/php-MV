@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS `shop`;
 CREATE DATABASE IF NOT EXISTS `shop` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 # Create and populate the products table with test data
