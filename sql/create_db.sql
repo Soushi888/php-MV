@@ -1,7 +1,7 @@
 DROP DATABASE IF EXISTS `shop`;
 CREATE DATABASE IF NOT EXISTS `shop` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 
-# Create and populate the products table with test data
+# Create the products table
 SET foreign_key_checks = 0;
 DROP TABLE IF EXISTS products;
 SET foreign_key_checks = 1;
@@ -17,7 +17,7 @@ CREATE TABLE products
     updated_at  DATETIME       NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) engine = InnoDB;
 
-# Create and populate the reviews table with test data
+# Create the reviews table
 DROP TABLE IF EXISTS reviews;
 
 CREATE TABLE reviews
