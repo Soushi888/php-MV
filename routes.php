@@ -3,8 +3,8 @@
 // Define the routes and their corresponding controllers files
 /** @var Router $router */
 $router->define([
-    '' => 'controllers/products/index.php',
-    'products' => 'controllers/products/index.php',
+    '' => 'controllers/products/show-products.php',
+    'products' => 'controllers/products/show-products.php',
     'product' => 'controllers/products/product.php',
     'product/add' => 'controllers/products/add-product.php',
     'product/edit' => 'controllers/products/edit-product.php',
